@@ -1,6 +1,16 @@
 {
   "name": "BrowserDetection.js",
   "version": "0.0.1",
-  "dependencies": {},
-  "devDependencies": {}
+  "main": "./BrowserDetection.js",
+  "ignore": [
+    ".gitignore",
+    ".jshintrc",
+    "bower.json",
+    "Gruntfile.js",
+    "package.json",
+    "README.md"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.10"
+  }
 }
