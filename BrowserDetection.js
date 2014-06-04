@@ -11,7 +11,7 @@
      * Detection
      * @namespace Detection
      * @desc Detection Browser object
-     * @version 0.0.1
+     * @version 0.0.2
      */
     w.BrowserDetection = w.BrowserDetection || {
 
@@ -68,6 +68,10 @@
          * @return void
          */
         CheckMobile : function () {
+
+            if (typeof(jQuery) === 'undefined') {
+                return;
+            }
 
             Detection.isMobile = (function (a) {
 
@@ -192,6 +196,10 @@
          */
         WindowSize : function () {
 
+            if (typeof(jQuery) === 'undefined') {
+                return;
+            }
+            
             if (Detection.isMobile) {
                 Detection.WindowWidth = window.innerWidth;
                 Detection.WindowHeight = window.innerHeight;
