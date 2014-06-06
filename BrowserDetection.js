@@ -3,7 +3,6 @@
  * Author: Milanowicz
  * Homepage: https://github.com/Milanowicz
  * Date: Mai 04 2014
- * Version: 0.0.1
  */
 (function (w) {
 
@@ -11,7 +10,7 @@
      * Detection
      * @namespace Detection
      * @desc Detection Browser object
-     * @version 0.0.2
+     * @version 0.0.3
      */
     w.BrowserDetection = w.BrowserDetection || {
 
@@ -52,13 +51,13 @@
          */
         CheckAll : function () {
 
-            Detection.CheckInternetExplorer();
+            BrowserDetection.CheckMobile();
 
-            if (!Detection.isIE) {
-                Detection.CheckMobile();
+            if (!BrowserDetection.isMobile) {
+                BrowserDetection.CheckInternetExplorer();
             }
 
-            Detection.WindowSize();
+            BrowserDetection.WindowSize();
 
         },
 
@@ -73,7 +72,7 @@
                 return;
             }
 
-            Detection.isMobile = (function (a) {
+            BrowserDetection.isMobile = (function (a) {
 
                 var MobileChecks = {
                     All : function () {
@@ -129,7 +128,7 @@
              */
             if (navigator.appName == 'Microsoft Internet Explorer') {
 
-                Detection.isIE = true;
+                BrowserDetection.isIE = true;
 
                 // RegEx to find the IE version number
                 RegEx = new RegExp("MSIE ([0-9]{1,}[.0-9]{0,})");
@@ -142,14 +141,14 @@
                 if (RegEx.exec(UserAgent) != null) {
 
                     // Extract version number
-                    Detection.ieVersion = parseInt(RegExp.$1);
+                    BrowserDetection.ieVersion = parseInt(RegExp.$1);
 
                     // Get HTML tag element
                     HtmlTag = document.getElementsByTagName('html')[0];
 
                     // Append html tag by an ie class
                     HtmlTag.className = HtmlTag.className || "";
-                    HtmlTag.className += ' ie' + Detection.ieVersion;
+                    HtmlTag.className += ' ie' + BrowserDetection.ieVersion;
 
                 }
 
@@ -158,7 +157,7 @@
              */
             } else if (navigator.appName == 'Netscape') {
 
-                Detection.isIE = true;
+                BrowserDetection.isIE = true;
 
                 // RegEx to find the IE version number
                 RegEx  = new RegExp("Trident/.*rv:([0-9]{1,}[.0-9]{0,})");
@@ -171,19 +170,19 @@
                 if (RegEx.exec(UserAgent) != null) {
 
                     // Extract version number
-                    Detection.ieVersion = parseInt(RegExp.$1);
+                    BrowserDetection.ieVersion = parseInt(RegExp.$1);
 
                     // Get HTML tag element
                     HtmlTag = document.getElementsByTagName('html')[0];
 
                     // Append html tag by an ie class
                     HtmlTag.className = HtmlTag.className || "";
-                    HtmlTag.className += ' ie' + Detection.ieVersion;
+                    HtmlTag.className += ' ie' + BrowserDetection.ieVersion;
                 }
 
             } else {
 
-                Detection.isIE = false;
+                BrowserDetection.isIE = false;
 
             }
 
@@ -200,12 +199,12 @@
                 return;
             }
             
-            if (Detection.isMobile) {
-                Detection.WindowWidth = window.innerWidth;
-                Detection.WindowHeight = window.innerHeight;
+            if (BrowserDetection.isMobile) {
+                BrowserDetection.WindowWidth = window.innerWidth;
+                BrowserDetection.WindowHeight = window.innerHeight;
             } else {
-                Detection.WindowWidth = jQuery(window).width();
-                Detection.WindowHeight = jQuery(window).height();
+                BrowserDetection.WindowWidth = jQuery(window).width();
+                BrowserDetection.WindowHeight = jQuery(window).height();
             }
 
         }
