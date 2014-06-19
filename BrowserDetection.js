@@ -10,7 +10,7 @@
      * Detection
      * @namespace Detection
      * @desc Detection Browser object
-     * @version 0.0.3
+     * @version 0.0.4
      */
     w.BrowserDetection = w.BrowserDetection || {
 
@@ -33,6 +33,12 @@
         ieVersion           : 100,
 
         /**
+         * Browser Language
+         * @type {string}
+         */
+        Lang                : 'en',
+
+        /**
          * Browser width width
          * @type {number}
          */
@@ -52,6 +58,7 @@
         CheckAll : function () {
 
             BrowserDetection.CheckMobile();
+            BrowserDetection.CheckLanguage();
 
             if (!BrowserDetection.isMobile) {
                 BrowserDetection.CheckInternetExplorer();
@@ -186,6 +193,19 @@
 
             }
 
+        },
+
+
+        /**
+         * Check Browser Default Language
+         * @return void
+         */
+        CheckLanguage : function () {
+            try {
+                BrowserDetection.Lang = window.navigator.userLanguage || window.navigator.language;
+            } catch (e) {
+                BrowserDetection.Lang = 'en';
+            }
         },
 
 

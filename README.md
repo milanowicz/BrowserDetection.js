@@ -28,6 +28,10 @@ Check for a Mobile Device, safe result into isMobile.
 
     CheckMobile()
 
+Check Browser Default Language
+
+    CheckLanguage()
+
 Check the Browser Windows size, then safe the results into WindowWidth and WindowHeight.
 
     WindowSize()
@@ -46,6 +50,10 @@ True by IE and false by another Browser.
 Default 100 and by IE the version.
 
     ieVersion
+
+Browser Language
+
+    Lang
 
 Default 0, it used by WindowSize().
 
