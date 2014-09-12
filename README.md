@@ -32,6 +32,10 @@ Check Browser Default Language
 
     CheckLanguage()
 
+Avoid `console` errors in browsers that lack a console.
+
+    ConsoleWrapper()
+
 Check the Browser Windows size, then safe the results into WindowWidth and WindowHeight.
 
     WindowSize()

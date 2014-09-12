@@ -1,6 +1,6 @@
 {
   "name": "BrowserDetection.js",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "./BrowserDetection.js",
   "ignore": [
     ".gitignore",

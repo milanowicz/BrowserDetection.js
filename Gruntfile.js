@@ -40,7 +40,7 @@ module.exports = function(grunt) {
             },
             src: {
                 src: [
-                    'Detection.js'
+                    'BrowserDetection.js'
                 ]
             }
         },
