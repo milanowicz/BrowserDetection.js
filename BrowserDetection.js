@@ -10,7 +10,7 @@
      * Detection
      * @namespace Detection
      * @desc Detection Browser object
-     * @version 0.0.4
+     * @version 0.0.6
      */
     w.BrowserDetection = w.BrowserDetection || {
 
@@ -147,7 +147,7 @@
                  */
                 if (RegEx.exec(UserAgent) != null) {
 
-					BrowserDetection.isIE = true;
+                    BrowserDetection.isIE = true;
 
                     // Extract version number
                     BrowserDetection.ieVersion = parseInt(RegExp.$1);
@@ -166,8 +166,6 @@
              */
             } else if (navigator.appName == 'Netscape') {
 
-                BrowserDetection.isIE = true;
-
                 // RegEx to find the IE version number
                 RegEx  = new RegExp("Trident/.*rv:([0-9]{1,}[.0-9]{0,})");
                 UserAgent = navigator.userAgent;
@@ -177,6 +175,8 @@
                  * Then set it to a variable and to the HTML Element Tag
                  */
                 if (RegEx.exec(UserAgent) != null) {
+
+                    BrowserDetection.isIE = true;
 
                     // Extract version number
                     BrowserDetection.ieVersion = parseInt(RegExp.$1);
