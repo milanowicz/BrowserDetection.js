@@ -2,15 +2,15 @@
  * BrowserDetection.js
  * Author: Milanowicz
  * Homepage: https://github.com/Milanowicz
- * Date: Mai 04 2014
+ * Date: September 21 2014
  */
 (function (w) {
 
     /**
-     * Detection
+     * Browser Detection Object
      * @namespace Detection
-     * @desc Detection Browser object
-     * @version 0.0.6
+     * @desc Detection for Browsers
+     * @version 0.0.7
      */
     w.BrowserDetection = w.BrowserDetection || {
 
@@ -37,6 +37,12 @@
          * @type {string}
          */
         Lang                : 'en',
+
+        /**
+         * Browser Language Code
+         * @type {string}
+         */
+        LangCode            : 'en-us',
 
         /**
          * Browser width width
@@ -76,15 +82,16 @@
          */
         CheckMobile : function () {
 
-            if (typeof(jQuery) === 'undefined') {
-                console.log('jQuery Framework required!');
-                return;
-            }
-
             BrowserDetection.isMobile = (function (a) {
 
                 var MobileChecks = {
                     All : function () {
+
+                        if (typeof(jQuery) === 'undefined') {
+                            console.log('jQuery Framework required!');
+                            return;
+                        }
+
                         /**
                          * Mobile Device Detection for jQuery
                          * http://detectmobilebrowsers.com/
@@ -130,10 +137,10 @@
          */
         CheckInternetExplorer : function () {
 
-			var RegEx, UserAgent, HtmlTag;
+            var RegEx, UserAgent, HtmlTag;
 
 			/**
-             * Check Internet Explorer under equal Version 10
+             * Check Internet Explorer UNDER EQUAL Version 10
              */
             if (navigator.appName == 'Microsoft Internet Explorer') {
 
@@ -159,10 +166,14 @@
                     HtmlTag.className = HtmlTag.className || "";
                     HtmlTag.className += ' ie' + BrowserDetection.ieVersion;
 
+                } else {
+
+                    BrowserDetection.isIE = false;
+
                 }
 
 			/**
-             * Check Internet Explorer over equal Version 11
+             * Check Internet Explorer OVER EQUAL Version 11
              */
             } else if (navigator.appName == 'Netscape') {
 
@@ -187,6 +198,11 @@
                     // Append html tag by an ie class
                     HtmlTag.className = HtmlTag.className || "";
                     HtmlTag.className += ' ie' + BrowserDetection.ieVersion;
+
+                } else {
+
+                    BrowserDetection.isIE = false;
+
                 }
 
             } else {
@@ -204,9 +220,17 @@
          */
         CheckLanguage : function () {
             try {
-                BrowserDetection.Lang = window.navigator.userLanguage || window.navigator.language;
+
+                (function (a) {
+
+                    BrowserDetection.Lang = a.substr(0, 2).toLowerCase();
+                    BrowserDetection.LangCode = a.toLowerCase();
+
+                })(window.navigator.userLanguage || window.navigator.language);
+
             } catch (e) {
                 BrowserDetection.Lang = 'en';
+                BrowserDetection.LangCode = 'en-us';
             }
         },
 
