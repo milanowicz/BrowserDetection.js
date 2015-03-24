@@ -10,7 +10,7 @@
      * BrowserDetection.js
      * @namespace Detection
      * @desc Detection Browser object
-     * @version 0.0.7
+     * @version 0.0.8
      */
     w.BrowserDetection = w.BrowserDetection || {
 
@@ -48,6 +48,12 @@
          * @global
          */
         Lang: 'en',
+
+        /**
+         * Browser Language Code
+         * @type {string}
+         */
+        LangCode            : 'en-us',
 
         /**
          * Browser width width
@@ -275,11 +281,16 @@
                     HtmlTag.className = HtmlTag.className || "";
                     HtmlTag.className += ' ie' + BrowserDetection.ieVersion;
 
+                } else {
+
+                    BrowserDetection.isIE = false;
+
                 }
 
-                /**
-                 * Check Internet Explorer over equal Version 11
-                 */
+
+			/**
+             * Check Internet Explorer OVER EQUAL Version 11
+             */
             } else if (navigator.appName == 'Netscape') {
 
                 // RegEx to find the IE version number
@@ -303,6 +314,11 @@
                     // Append html tag by an ie class
                     HtmlTag.className = HtmlTag.className || "";
                     HtmlTag.className += ' ie' + BrowserDetection.ieVersion;
+
+                } else {
+
+                    BrowserDetection.isIE = false;
+
                 }
 
             } else {
@@ -320,9 +336,17 @@
          */
         CheckLanguage: function () {
             try {
-                BrowserDetection.Lang = window.navigator.userLanguage || window.navigator.language;
+
+                (function (a) {
+
+                    BrowserDetection.Lang = a.substr(0, 2).toLowerCase();
+                    BrowserDetection.LangCode = a.toLowerCase();
+
+                })(window.navigator.userLanguage || window.navigator.language);
+
             } catch (e) {
                 BrowserDetection.Lang = 'en';
+                BrowserDetection.LangCode = 'en-us';
                 console.log(e);
             }
         },

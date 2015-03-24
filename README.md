@@ -97,6 +97,10 @@ Browser Language
 
     Lang
 
+Browser specific language code
+
+    LangCode
+
 Default 0, it used by WindowSize().
 
     WindowWidth
