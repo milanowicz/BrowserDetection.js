@@ -3,15 +3,15 @@
   "description": "JavaScript Detection for Mobile Device, Internet Explorer and Window Size",
   "homepage": "https://github.com/Milanowicz/BrowserDetection.js",
   "author": "Milanowicz",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "repository": {
     "type": "git",
     "url": "git@github.com:Milanowicz/BrowserDetection.js.git"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
-    "grunt-contrib-jshint": "^0.10.0",
-    "grunt-contrib-uglify": "^0.5.1",
-    "grunt-dev-update": "^0.7.0"
+    "grunt-contrib-jshint": "^0.11.1",
+    "grunt-contrib-uglify": "^0.8.0",
+    "grunt-dev-update": "^1.1.0"
   }
 }

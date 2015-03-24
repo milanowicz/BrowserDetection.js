@@ -47,8 +47,9 @@ module.exports = function(grunt) {
         uglify : {
             options : {
                 banner : '/*!\n' +
-                         ' * <%= pkg.name %> - <%= grunt.template.today("yyyy") %> \n' +
-                         ' * Version <%= pkg.version %>\n' +
+                         ' * Script: <%= pkg.name %> \n' +
+                         ' * Year: <%= grunt.template.today("yyyy") %> \n' +
+                         ' * Version: <%= pkg.version %>\n' +
                          ' */\n',
                 report : 'min'
             },

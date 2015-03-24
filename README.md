@@ -16,7 +16,7 @@ Bind the script behind the jQuery Framework and his Plug-Ins.
 
 ### Methods
 
-Excute all checks from file.
+Execute all checks from script and init all variables.
 
     CheckAll()
 
@@ -41,6 +41,40 @@ Check the Browser Windows size, then safe the results into WindowWidth and Windo
     WindowSize()
 
 
+#### Namespace `CheckDevice` Methods
+
+Check different or all device types, if it's a mobile device or not.
+
+    AllMobiles()
+    
+    AnyDevice()
+    
+    Android()
+    
+    BlackBerry()
+    
+    iOS()
+    
+    Opera()
+    
+    Windows()
+
+
+#### Namespace `CheckBrowser` Methods
+
+Check which Browser is it.
+
+    AllBrowser()
+    
+    Chrome()
+    
+    Firefox()
+    
+    Opera()
+    
+    Safari()
+
+
 ### Variables
 
 True by Mobile and false by all other devices.
@@ -50,6 +84,10 @@ True by Mobile and false by all other devices.
 True by IE and false by another Browser.
 
     isIE
+
+Default the string is empty.
+
+    isBrowser
 
 Default 100 and by IE the version.
 
