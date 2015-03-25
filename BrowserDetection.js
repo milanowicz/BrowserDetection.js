@@ -2,6 +2,7 @@
  * BrowserDetection.js
  * Author: Milanowicz
  * Homepage: https://github.com/Milanowicz
+ * License: MIT
  * Date: 2014-03-24
  */
 (function (w, $, Browser) {
@@ -53,7 +54,7 @@
          * Browser Language Code
          * @type {string}
          */
-        LangCode            : 'en-us',
+        LangCode: 'en-us',
 
         /**
          * Browser width width

@@ -48,6 +48,8 @@ module.exports = function(grunt) {
             options : {
                 banner : '/*!\n' +
                          ' * Script: <%= pkg.name %> \n' +
+                         ' * Homepage: https://github.com/Milanowicz \n' +
+                         ' * License: MIT \n' +
                          ' * Year: <%= grunt.template.today("yyyy") %> \n' +
                          ' * Version: <%= pkg.version %>\n' +
                          ' */\n',
