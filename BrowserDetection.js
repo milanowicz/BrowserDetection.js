@@ -134,7 +134,6 @@
              * @constructor
              */
             AnyDevice: function () {
-                console.log(BrowserDetection.CheckDevice.AllMobiles());
                 if (BrowserDetection.CheckDevice.AllMobiles() === false) {
                     return (
                     BrowserDetection.CheckDevice.Android() ||
