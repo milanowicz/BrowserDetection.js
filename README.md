@@ -55,6 +55,10 @@ True by Mobile and false by all other devices.
 True by IE and false by another Browser.
 
     isIE
+    
+True by MS Edge Browser and false by other Browser.
+
+    isEdge
 
 Default the string is empty.
 
