@@ -14,7 +14,7 @@
      *
      * @namespace Detection
      * @desc Detection Browser object
-     * @version 0.1.0
+     * @version 0.2.0
      */
     w.BrowserDetection = w.BrowserDetection || {
 
@@ -82,12 +82,28 @@
         WindowWidth: 0,
 
         /**
+         * Browser width width.
+         *
+         * @type {number}
+         * @global
+         */
+        WindowWidthOuter: 0,
+
+        /**
          * Browser width height.
          *
          * @type {number}
          * @global
          */
         WindowHeight: 0,
+
+        /**
+         * Browser width height.
+         *
+         * @type {number}
+         * @global
+         */
+        WindowHeightOuter: 0,
 
 
         /**
@@ -107,6 +123,7 @@
 
             w.BrowserDetection.CheckBrowser.AllBrowser();
             w.BrowserDetection.WindowSize();
+            w.BrowserDetection.WindowSizeOuter();
 
         },
 
@@ -418,19 +435,22 @@
          */
         WindowSize: function () {
 
+            w.BrowserDetection.WindowWidth = window.innerWidth;
+            w.BrowserDetection.WindowHeight = window.innerHeight;
+
+        },
+
+        /**
+         *
+         * @return void
+         */
+        WindowSizeOuter: function () {
             if (typeof($) === 'undefined') {
                 w.console.log('jQuery Framework required!');
                 return;
             }
-
-            if (w.BrowserDetection.isMobile) {
-                w.BrowserDetection.WindowWidth = window.innerWidth;
-                w.BrowserDetection.WindowHeight = window.innerHeight;
-            } else {
-                w.BrowserDetection.WindowWidth = $(window).width();
-                w.BrowserDetection.WindowHeight = $(window).height();
-            }
-
+            w.BrowserDetection.WindowWidth = $(window).width();
+            w.BrowserDetection.WindowHeight = $(window).height();
         }
     };
 
