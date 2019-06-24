@@ -1,5 +1,5 @@
 {
-  "name": "BrowserDetection.js",
+  "name": "browserdetection.js",
   "description": "JavaScript Detection for Mobile Device, Internet Explorer and Window Size",
   "homepage": "https://github.com/Milanowicz/BrowserDetection.js",
   "author": "Milanowicz",
@@ -10,8 +10,8 @@
   },
   "devDependencies": {
     "grunt": "^1.0.1",
-    "grunt-contrib-jshint": "^1.1.0",
-    "grunt-contrib-uglify": "^3.0.1",
+    "grunt-contrib-jshint": "^2.1.0",
+    "grunt-contrib-uglify": "^4.0.1",
     "grunt-dev-update": "^2.2.0"
   }
 }

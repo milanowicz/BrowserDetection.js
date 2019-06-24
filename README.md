@@ -29,16 +29,6 @@ This Plug-In checks the following browser features:
 * Check the Browser language.
 
 
-## Bower Usage
-
-Install Bower at the first time when you never used it before.
-
-    $ npm install -g bower
-
-Install via Bower
-
-    $ bower install BrowserDetection.js
-
 
 ## Plug-In Namespace
 
