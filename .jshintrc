@@ -7,6 +7,7 @@
   "devel"    : true,
   "eqeqeq"   : false,
   "eqnull"   : true,
+  "esversion": 6,
   "expr"     : true,
   "laxbreak" : true,
   "laxcomma" : true,
