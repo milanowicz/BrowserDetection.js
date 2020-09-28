@@ -1,6 +1,6 @@
 # BrowserDetection.js
 
-![Test](https://github.com/Milanowicz/BrowserDetection.js/workflows/JavsScript%20Pipe/badge.svg?branch=dev)
+![Test](https://github.com/Milanowicz/BrowserDetection.js/workflows/Build/badge.svg?branch=dev)
 
 
 ## Usage

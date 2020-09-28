@@ -1,4 +1,4 @@
-name: JavsScript Pipe
+name: Build
 
 on: [push]
 
