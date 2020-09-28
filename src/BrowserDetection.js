@@ -8,7 +8,7 @@
  * @desc Detection Browser object
  * @version 1.0.0
  */
-export default class BrowserDetection {
+module.exports = class BrowserDetection {
   /**
    * @param {window} window
    * @param {String} userAgent

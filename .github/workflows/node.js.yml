@@ -13,6 +13,7 @@ jobs:
       with:
         node-version: "12.x"
     - run: yarn install
+    - run: grunt jshint
     - run: npm run test
     env:
       CI: true
