@@ -1,5 +1,8 @@
 # BrowserDetection.js
 
+![Test](https://github.com/Milanowicz/BrowserDetection.js/workflows/JavsScript%20Pipe/badge.svg?branch=dev)
+
+
 ## Usage
 
     const detection = new BrowserDetection(
