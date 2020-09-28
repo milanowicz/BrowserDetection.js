@@ -8,7 +8,7 @@
  * @desc Detection Browser object
  * @version 1.0.0
  */
-class BrowserDetection {
+export default class BrowserDetection {
   /**
    * @param {window} window
    * @param {String} userAgent
@@ -441,5 +441,3 @@ class BrowserDetection {
     this._windowWidthOuter = this._w.outerWidth || 0;
   }
 }
-
-export default BrowserDetection;

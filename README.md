@@ -4,7 +4,7 @@
 
     const detection = new BrowserDetection(
         window,
-        navigator.userAgent || navigator.vendor || window.opera
+        navigator.userAgent || navigator.vendor || window.opera || '',
         navigator.appName || ''
     );
 
