@@ -24,7 +24,7 @@ module.exports = class BrowserDetection {
     }
     this._browserName = '';
     this._isMobile = false;
-    this._mobileType = '';
+    this._osType = '';
     this._isIE = false;
     this._isEdge = false;
     this._ieVersion = 100;
@@ -73,12 +73,12 @@ module.exports = class BrowserDetection {
   }
 
   /**
-   * Get Mobile Device Type
+   * Get Mobile OS Device Type
    *
    * @return {string}
    */
-  getMobileType() {
-    return this._mobileType;
+  getOsType() {
+    return this._osType;
   }
 
   /**
@@ -117,7 +117,7 @@ module.exports = class BrowserDetection {
    */
   checkAll() {
     this.consoleWrapper();
-    this.checkMobile();
+    this.checkAnyDevice();
     this.checkLanguage();
     this.checkBrowserInternetExplorer();
     this.checkAllBrowser();
@@ -156,15 +156,6 @@ module.exports = class BrowserDetection {
   }
 
   /**
-   * Check if the browser is on mobile device.
-   *
-   * @return void
-   */
-  checkMobile() {
-    this.checkAnyDevice();
-  }
-
-  /**
    * Execute all Tests from this Namespace to be sure is a Mobile device or not.
    *
    * @return {boolean}
@@ -172,25 +163,35 @@ module.exports = class BrowserDetection {
   checkAnyDevice() {
     this._isMobile = this.checkAllMobiles();
 
-    this._mobileType = '';
-    if (this.checkDeviceAndroid()) {
-      this._mobileType = 'Android';
+    this._osType = '';
+    if (this.checkMobileDeviceAndroid()) {
+      this._osType = 'Android';
     }
-    if (this.checkDeviceBlackBerry()) {
-      this._mobileType = 'Black Berry';
+    if (this.checkMobileDeviceBlackBerry()) {
+      this._osType = 'Black Berry';
     }
-    if (this.checkDeviceiOS()) {
-      this._mobileType = 'Apple';
+    if (this.checkMobileDeviceiOS()) {
+      this._osType = 'Apple';
     }
-    if (this.checkDeviceOpera()) {
-      this._mobileType = 'Opera';
+    if (this.checkMobileDeviceOpera()) {
+      this._osType = 'Opera';
     }
-    if (this.checkDeviceWindows()) {
-      this._mobileType = 'Windows';
+    if (this.checkMobileDeviceWindows()) {
+      this._osType = 'Windows';
     }
 
-    if (this._mobileType !== '') {
+    if (this._osType !== '') {
       this._isMobile = true;
+    } else {
+      if (this.checkDesktopDeviceApple()) {
+        this._osType = 'Apple';
+      }
+      if (this.checkDesktopDeviceLinux()) {
+        this._osType = 'Linux';
+      }
+      if (this.checkDesktopDeviceWindows()) {
+        this._osType = 'Windows';
+      }
     }
   }
 
@@ -209,7 +210,7 @@ module.exports = class BrowserDetection {
    *
    * @returns {boolean}
    */
-  checkDeviceAndroid() {
+  checkMobileDeviceAndroid() {
     return !!(this._userAgent.match(/Android/i));
   }
 
@@ -218,7 +219,7 @@ module.exports = class BrowserDetection {
    *
    * @returns {boolean}
    */
-  checkDeviceBlackBerry() {
+  checkMobileDeviceBlackBerry() {
     return !!(this._userAgent.match(/BlackBerry/i));
   }
 
@@ -227,7 +228,7 @@ module.exports = class BrowserDetection {
    *
    * @returns {boolean}
    */
-  checkDeviceiOS() {
+  checkMobileDeviceiOS() {
     return !!(this._userAgent.match(/iPhone|iPad|iPod/i));
   }
 
@@ -236,7 +237,7 @@ module.exports = class BrowserDetection {
    *
    * @returns {boolean}
    */
-  checkDeviceOpera() {
+  checkMobileDeviceOpera() {
     return !!(this._userAgent.match(/Opera Mini|Opera Mobi/i));
   }
 
@@ -244,8 +245,32 @@ module.exports = class BrowserDetection {
    * Check if is a Microsoft Windows device
    * @returns {boolean}
    */
-  checkDeviceWindows() {
+  checkMobileDeviceWindows() {
     return !!(this._userAgent.match(/IEMobile|Windows Phone/i));
+  }
+
+  /**
+   * Check if is a Apple device
+   * @returns {boolean}
+   */
+  checkDesktopDeviceApple() {
+    return !!(this._userAgent.match(/Macintosh/i));
+  }
+
+  /**
+   * Check if is a GNU/Linux
+   * @returns {boolean}
+   */
+  checkDesktopDeviceLinux() {
+    return !!(this._userAgent.match(/Linux/i));
+  }
+
+  /**
+   * Check if is a Microsoft Windows device
+   * @returns {boolean}
+   */
+  checkDesktopDeviceWindows() {
+    return !!(this._userAgent.match(/Windows NT/i));
   }
 
   /**
@@ -372,7 +397,7 @@ module.exports = class BrowserDetection {
     /**
      * Check Internet Explorer OVER EQUAL Version 11
      */
-    } else if (this._mobileType === 'Windows' || this._appName === 'Netscape') {
+    } else if (this._osType === 'Windows' || this._appName === 'Netscape') {
 
       // RegEx to find the IE version number
       RegEx = new RegExp("Trident/.*rv:([0-9]{1,}[.0-9]{0,})");

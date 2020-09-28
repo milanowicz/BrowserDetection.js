@@ -11,7 +11,7 @@
   "main": "src/BrowserDetection.js",
   "license": "MIT",
   "scripts": {
-    "test": "jest --coverage && ./node_modules/jest-coverage-badges/cli.js"
+    "test": "jest --coverage"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",

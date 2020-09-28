@@ -19,7 +19,7 @@ describe('BrowserDetection', () => {
     expect(detection.isIE()).toBeFalsy();
     expect(detection.isEdge()).toBeFalsy();
     expect(detection.getBrowserName()).toEqual('');
-    expect(detection.getMobileType()).toEqual('');
+    expect(detection.getOsType()).toEqual('');
     expect(detection.getIeVersion()).toEqual(DEFAULT_IE_VERSION);
     expect(detection.getLanguage()).toEqual('en');
     expect(detection.getLanguageCode()).toEqual('en-us');
@@ -27,6 +27,17 @@ describe('BrowserDetection', () => {
     expect(detection.getWindowHeightOuter()).toEqual(0);
     expect(detection.getWindowWidth()).toEqual(0);
     expect(detection.getWindowWidthOuter()).toEqual(0);
+  }
+
+  function checkDevice(value) {
+    detection = new BrowserDetection(window, value.agent, value.appName);
+    detection.checkAll();
+    expect(detection.isMobile()).toEqual(value.mobile);
+    expect(detection.getBrowserName()).toEqual(value.browser);
+    expect(detection.getOsType()).toEqual(value.type);
+    expect(detection.isIE()).toEqual(value.isIE);
+    expect(detection.isEdge()).toEqual(value.isEdge);
+    expect(detection.getIeVersion()).toEqual(value.ieVersion);
   }
 
   test('test constructor', () => {
@@ -41,14 +52,14 @@ describe('BrowserDetection', () => {
   test('test checkAll User Agents from Browser', () => {
     UserAgents.forEach((value) => {
       try {
-        detection = new BrowserDetection(window, value.agent, value.appName);
-        detection.checkAll();
-        expect(detection.isMobile()).toEqual(value.mobile);
-        expect(detection.getBrowserName()).toEqual(value.browser);
-        expect(detection.getMobileType()).toEqual(value.type);
-        expect(detection.isIE()).toEqual(value.isIE);
-        expect(detection.isEdge()).toEqual(value.isEdge);
-        expect(detection.getIeVersion()).toEqual(value.ieVersion);
+        if (value.agents) {
+          value.agents.forEach((agent) => {
+            value.agent = agent;
+            checkDevice(value);
+          });
+        } else {
+          checkDevice(value);
+        }
       } catch (e) {
         console.log(value);
         throw e;
