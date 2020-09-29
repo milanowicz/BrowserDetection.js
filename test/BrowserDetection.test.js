@@ -23,10 +23,6 @@ describe('BrowserDetection', () => {
     expect(detection.getIeVersion()).toEqual(DEFAULT_IE_VERSION);
     expect(detection.getLanguage()).toEqual('en');
     expect(detection.getLanguageCode()).toEqual('en-us');
-    expect(detection.getWindowHeight()).toEqual(0);
-    expect(detection.getWindowHeightOuter()).toEqual(0);
-    expect(detection.getWindowWidth()).toEqual(0);
-    expect(detection.getWindowWidthOuter()).toEqual(0);
   }
 
   function checkDevice(value) {
@@ -41,6 +37,7 @@ describe('BrowserDetection', () => {
   }
 
   test('test constructor', () => {
+    detection = new BrowserDetection();
     checkDefaults(detection);
   });
 

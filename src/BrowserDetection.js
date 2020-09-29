@@ -10,18 +10,27 @@
  */
 module.exports = class BrowserDetection {
   /**
-   * @param {window} window
-   * @param {String} userAgent
-   * @param {String} [appName]
+   * @param {window} window - Window Browser Object.
+   * @param {String} userAgent - User Agent String.
+   * @param {String} [appName] - App Name from Navigator as String.
    */
   constructor(window, userAgent, appName) {
+    if (typeof window === 'undefined') {
+      window = {};
+    }
     this._w = window;
+
+    if (typeof userAgent === 'undefined') {
+      userAgent = '';
+    }
     this._userAgent = userAgent;
+
     if (typeof appName === 'undefined') {
       this._appName = '';
     } else {
       this._appName = appName;
     }
+
     this._browserName = '';
     this._isMobile = false;
     this._osType = '';
@@ -30,10 +39,6 @@ module.exports = class BrowserDetection {
     this._ieVersion = 100;
     this._lang = 'en';
     this._langCode = 'en-us';
-    this._windowWidth = 0;
-    this._windowWidthOuter = 0;
-    this._windowHeight = 0;
-    this._windowHeightOuter = 0;
   }
 
   /**
@@ -113,23 +118,21 @@ module.exports = class BrowserDetection {
   /**
    * Call all Detection functions.
    *
-   * @return void
+   * @return {void}
    */
   checkAll() {
     this.consoleWrapper();
-    this.checkAnyDevice();
+    this.checkOperationSystem();
     this.checkLanguage();
     this.checkBrowserInternetExplorer();
     this.checkAllBrowser();
-    this.windowSize();
-    this.windowSizeOuter();
   }
 
   /**
    * Avoid `console` errors in browsers that lack a console.
    *
    * @see https://github.com/h5bp/html5-boilerplate/blob/master/src/js/plugins.js
-   * @return void
+   * @return {void}
    */
   consoleWrapper() {
 
@@ -156,11 +159,11 @@ module.exports = class BrowserDetection {
   }
 
   /**
-   * Execute all Tests from this Namespace to be sure is a Mobile device or not.
+   * Check Operation System from Device.
    *
-   * @return {boolean}
+   * @return {void}
    */
-  checkAnyDevice() {
+  checkOperationSystem() {
     this._isMobile = this.checkAllMobiles();
 
     this._osType = '';
@@ -276,7 +279,7 @@ module.exports = class BrowserDetection {
   /**
    * Check Browser Default Language.
    *
-   * @return void
+   * @return {void}
    */
   checkLanguage() {
     try {
@@ -295,7 +298,7 @@ module.exports = class BrowserDetection {
   /**
    * Check all Browser and save type in global variable
    *
-   * @return void
+   * @return {void}
    */
   checkAllBrowser() {
     if (this.isIE() || this.isEdge()) {
@@ -350,7 +353,7 @@ module.exports = class BrowserDetection {
   /**
    * Detection from Internet Explorer and his version.
    *
-   * @return void
+   * @return {void}
    */
   checkBrowserInternetExplorer() {
 
@@ -409,60 +412,5 @@ module.exports = class BrowserDetection {
         t._isEdge = true;
       }
     }
-  }
-
-  /**
-   * Get Window Height
-   *
-   * @return {number}
-   */
-  getWindowHeight() {
-    return this._windowHeight;
-  }
-
-  /**
-   * Get Window Width
-   *
-   * @return {number}
-   */
-  getWindowWidth() {
-    return this._windowWidth;
-  }
-
-  /**
-   * Get Window Height Outer
-   *
-   * @return {number}
-   */
-  getWindowHeightOuter() {
-    return this._windowHeightOuter;
-  }
-
-  /**
-   * Get Window Width Outer
-   *
-   * @return {number}
-   */
-  getWindowWidthOuter() {
-    return this._windowWidthOuter;
-  }
-
-  /**
-   * Get real window size.
-   *
-   * @return void
-   */
-  windowSize() {
-    this._windowHeight = this._w.innerHeight || 0;
-    this._windowWidth = this._w.innerWidth || 0;
-  }
-
-  /**
-   *
-   * @return void
-   */
-  windowSizeOuter() {
-    this._windowHeightOuter = this._w.outerHeight || 0;
-    this._windowWidthOuter = this._w.outerWidth || 0;
   }
 }

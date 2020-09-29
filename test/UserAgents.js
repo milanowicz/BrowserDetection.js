@@ -57,7 +57,9 @@ const UserAgents = [
     appName: '',
     mobile: true,
     browser: '',
-    agent: 'BlackBerry8520/5.0.0.681 Profile/MIDP-2.1 Configuration/CLDC-1.1 VendorID/600',
+    agents: [
+      'BlackBerry8520/5.0.0.681 Profile/MIDP-2.1 Configuration/CLDC-1.1 VendorID/600'
+    ],
     type: 'Black Berry',
     isIE: false,
     isEdge: false,
@@ -102,7 +104,9 @@ const UserAgents = [
     appName: '',
     mobile: false,
     browser: 'Firefox',
-    agent: 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.10; rv:75.0) Gecko/20100101 Firefox/75.0',
+    agents: [
+      'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.10; rv:75.0) Gecko/20100101 Firefox/75.0'
+    ],
     type: 'Apple',
     isIE: false,
     isEdge: false,
@@ -111,7 +115,9 @@ const UserAgents = [
     appName: '',
     mobile: false,
     browser: 'Opera',
-    agent: 'Opera/9.80 (Macintosh; Intel Mac OS X 10.14.1) Presto/2.12.388 Version/12.16',
+    agents: [
+      'Opera/9.80 (Macintosh; Intel Mac OS X 10.14.1) Presto/2.12.388 Version/12.16'
+    ],
     type: 'Apple',
     isIE: false,
     isEdge: false,
@@ -145,6 +151,17 @@ const UserAgents = [
     mobile: false,
     browser: 'IE',
     agents: [
+      'Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)'
+    ],
+    type: 'Windows',
+    isIE: true,
+    isEdge: false,
+    ieVersion: 5
+  },{
+    appName: 'Microsoft Internet Explorer',
+    mobile: false,
+    browser: 'IE',
+    agents: [
       'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)',
       'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.1.4322)'
     ],
@@ -156,7 +173,12 @@ const UserAgents = [
     appName: 'Microsoft Internet Explorer',
     mobile: false,
     browser: 'IE',
-    agent: 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; WOW64; Trident/4.0;)',
+    agents: [
+      'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; .NET CLR 1.1.4322)',
+      'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; WOW64; Trident/4.0;)',
+      'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)',
+      'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; .NET CLR 3.0.04506)'
+    ],
     type: 'Windows',
     isIE: true,
     isEdge: false,
@@ -179,7 +201,8 @@ const UserAgents = [
     browser: 'IE',
     agents: [
       'Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.0)',
-      'Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1)'
+      'Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1)',
+      'Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1; 125LA; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022)'
     ],
     type: 'Windows',
     isIE: true,
@@ -189,7 +212,9 @@ const UserAgents = [
     appName: 'Microsoft Internet Explorer',
     mobile: false,
     browser: 'IE',
-    agent: 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)',
+    agents: [
+      'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)'
+    ],
     type: 'Windows',
     isIE: true,
     isEdge: false,
@@ -198,7 +223,9 @@ const UserAgents = [
     appName: 'Microsoft Internet Explorer',
     mobile: false,
     browser: 'IE',
-    agent: 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2)',
+    agents: [
+      'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2)'
+    ],
     type: 'Windows',
     isIE: true,
     isEdge: false,
@@ -210,7 +237,9 @@ const UserAgents = [
     agents: [
       'Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko',
       'Mozilla/5.0 (Windows NT 6.2; Trident/7.0; rv:11.0) like Gecko',
-      'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko'
+      'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko',
+      'Mozilla/5.0 CK={} (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko',
+      'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729; rv:11.0) like Gecko'
     ],
     type: 'Windows',
     isIE: true,
@@ -220,7 +249,9 @@ const UserAgents = [
     appName: 'Netscape',
     mobile: false,
     browser: 'IE',
-    agent: 'Mozilla/5.0 (Windows NT 10.0; Trident/7.0; rv:11.0) like Gecko',
+    agents: [
+      'Mozilla/5.0 (Windows NT 10.0; Trident/7.0; rv:11.0) like Gecko'
+    ],
     type: 'Windows',
     isIE: true,
     isEdge: false,
@@ -229,7 +260,9 @@ const UserAgents = [
     appName: '',
     mobile: true,
     browser: 'IE',
-    agent: 'Mozilla/5.0 (Mobile; Windows Phone 8.1; Android 4.0; ARM; Trident/7.0; Touch; rv:11.0; IEMobile/11.0; NOKIA; Lumia 635) like iPhone OS 7_0_3 Mac OS X AppleWebKit/537 (KHTML, like Gecko) Mobile Safari/537',
+    agents: [
+      'Mozilla/5.0 (Mobile; Windows Phone 8.1; Android 4.0; ARM; Trident/7.0; Touch; rv:11.0; IEMobile/11.0; NOKIA; Lumia 635) like iPhone OS 7_0_3 Mac OS X AppleWebKit/537 (KHTML, like Gecko) Mobile Safari/537'
+    ],
     type: 'Windows',
     isIE: true,
     isEdge: false,
@@ -238,7 +271,9 @@ const UserAgents = [
     appName: 'Netscape',
     mobile: false,
     browser: 'IE',
-    agent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.246',
+    agents: [
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
+    ],
     type: 'Windows',
     isIE: true,
     isEdge: true,
@@ -247,7 +282,9 @@ const UserAgents = [
     appName: '',
     mobile: true,
     browser: 'IE',
-    agent: 'Mozilla/5.0 (Windows Phone 10.0; Android 4.2.1; Microsoft; RM-1127_16056) AppleWebKit/537.36(KHTML, like Gecko) Chrome/42.0.2311.135 Mobile Safari/537.36 Edge/12.10536',
+    agents: [
+      'Mozilla/5.0 (Windows Phone 10.0; Android 4.2.1; Microsoft; RM-1127_16056) AppleWebKit/537.36(KHTML, like Gecko) Chrome/42.0.2311.135 Mobile Safari/537.36 Edge/12.10536'
+    ],
     type: 'Windows',
     isIE: true,
     isEdge: true,
@@ -256,7 +293,9 @@ const UserAgents = [
     appName: '',
     mobile: true,
     browser: 'IE',
-    agent: 'Mozilla/5.0 (Windows Phone 10.0; Android 4.2.1; Microsoft; Lumia 950) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Mobile Safari/537.36 Edge/13.1058',
+    agents: [
+      'Mozilla/5.0 (Windows Phone 10.0; Android 4.2.1; Microsoft; Lumia 950) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Mobile Safari/537.36 Edge/13.1058'
+    ],
     type: 'Windows',
     isIE: true,
     isEdge: true,
