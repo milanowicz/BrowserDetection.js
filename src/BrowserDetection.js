@@ -121,11 +121,32 @@ module.exports = class BrowserDetection {
     return this._w.location.href || '';
   }
 
+  getUrlHash() {
+    if (typeof this._w.location === 'undefined') {
+      return '';
+    }
+    return this._w.location.hash || '';
+  }
+
+  getUrlHost() {
+    if (typeof this._w.location === 'undefined') {
+      return '';
+    }
+    return this._w.location.host || '';
+  }
+
   getUrlHostname() {
     if (typeof this._w.location === 'undefined') {
       return '';
     }
     return this._w.location.hostname || '';
+  }
+
+  getUrlOrigin() {
+    if (typeof this._w.location === 'undefined') {
+      return '';
+    }
+    return this._w.location.origin || '';
   }
 
   getUrlPathname() {
@@ -135,11 +156,25 @@ module.exports = class BrowserDetection {
     return this._w.location.pathname || '';
   }
 
+  getUrlPort() {
+    if (typeof this._w.location === 'undefined') {
+      return '';
+    }
+    return this._w.location.port || '';
+  }
+
   getUrlProtocol() {
     if (typeof this._w.location === 'undefined') {
-      return 80;
+      return '';
     }
-    return this._w.location.protocol || 80;
+    return this._w.location.protocol || '';
+  }
+
+  getUrlSearch() {
+    if (typeof this._w.location === 'undefined') {
+      return '';
+    }
+    return this._w.location.search || '';
   }
 
   /**

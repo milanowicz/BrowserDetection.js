@@ -23,11 +23,19 @@ describe('BrowserDetection', () => {
     expect(detection.getIeVersion()).toEqual(DEFAULT_IE_VERSION);
     expect(detection.getLanguage()).toEqual('en');
     expect(detection.getLanguageCode()).toEqual('en-us');
+    checkUrlDefaults(detection);
+  }
 
+  const checkUrlDefaults = (detection) => {
     expect(detection.getUrlComplete()).toEqual('');
+    expect(detection.getUrlHash()).toEqual('');
+    expect(detection.getUrlHost()).toEqual('');
     expect(detection.getUrlHostname()).toEqual('');
+    expect(detection.getUrlOrigin()).toEqual('');
     expect(detection.getUrlPathname()).toEqual('');
-    expect(detection.getUrlProtocol()).toEqual(80);
+    expect(detection.getUrlPort()).toEqual('');
+    expect(detection.getUrlProtocol()).toEqual('');
+    expect(detection.getUrlSearch()).toEqual('');
   }
 
   function checkDevice(value) {
@@ -89,25 +97,32 @@ describe('BrowserDetection', () => {
     window = {};
     window.location = {};
     detection = new BrowserDetection(window, agent);
-    expect(detection.getUrlComplete()).toEqual('');
-    expect(detection.getUrlHostname()).toEqual('');
-    expect(detection.getUrlPathname()).toEqual('');
-    expect(detection.getUrlProtocol()).toEqual(80);
+    checkUrlDefaults(detection);
   });
 
   test('test window location for Browser URL', () => {
     window = {};
     window.location = {
-      href: 'http://127.0.0.1:8080/test/url/string.html',
+      href: 'http://127.0.0.1:8080/test/url/string.html?search=1#front=end',
       hostname: '127.0.0.1',
       pathname: '/test/url/string.html',
-      protocol: 8080
+      hash: '#front=end',
+      host: '127.0.0.1:8080',
+      origin: 'http://127.0.0.1:8080',
+      port: '8080',
+      protocol: 'http:',
+      search: '?search=1'
     };
     detection = new BrowserDetection(window, agent);
-    expect(detection.getUrlComplete()).toEqual('http://127.0.0.1:8080/test/url/string.html');
+    expect(detection.getUrlComplete()).toEqual('http://127.0.0.1:8080/test/url/string.html?search=1#front=end');
     expect(detection.getUrlHostname()).toEqual('127.0.0.1');
+    expect(detection.getUrlHash()).toEqual('#front=end');
+    expect(detection.getUrlHost()).toEqual('127.0.0.1:8080');
+    expect(detection.getUrlOrigin()).toEqual('http://127.0.0.1:8080');
     expect(detection.getUrlPathname()).toEqual('/test/url/string.html');
-    expect(detection.getUrlProtocol()).toEqual(8080);
+    expect(detection.getUrlProtocol()).toEqual('http:');
+    expect(detection.getUrlPort()).toEqual('8080');
+    expect(detection.getUrlSearch()).toEqual('?search=1');
   });
 });
 
