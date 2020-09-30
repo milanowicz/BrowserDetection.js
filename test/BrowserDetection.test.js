@@ -23,6 +23,11 @@ describe('BrowserDetection', () => {
     expect(detection.getIeVersion()).toEqual(DEFAULT_IE_VERSION);
     expect(detection.getLanguage()).toEqual('en');
     expect(detection.getLanguageCode()).toEqual('en-us');
+
+    expect(detection.getUrlComplete()).toEqual('');
+    expect(detection.getUrlHostname()).toEqual('');
+    expect(detection.getUrlPathname()).toEqual('');
+    expect(detection.getUrlProtocol()).toEqual(80);
   }
 
   function checkDevice(value) {
@@ -78,6 +83,31 @@ describe('BrowserDetection', () => {
     detection.checkLanguage();
     expect(detection.getLanguage()).toEqual('zh');
     expect(detection.getLanguageCode()).toEqual('zh-cn');
+  });
+
+  test('test window location fallbacks when location is empty', () => {
+    window = {};
+    window.location = {};
+    detection = new BrowserDetection(window, agent);
+    expect(detection.getUrlComplete()).toEqual('');
+    expect(detection.getUrlHostname()).toEqual('');
+    expect(detection.getUrlPathname()).toEqual('');
+    expect(detection.getUrlProtocol()).toEqual(80);
+  });
+
+  test('test window location for Browser URL', () => {
+    window = {};
+    window.location = {
+      href: 'http://127.0.0.1:8080/test/url/string.html',
+      hostname: '127.0.0.1',
+      pathname: '/test/url/string.html',
+      protocol: 8080
+    };
+    detection = new BrowserDetection(window, agent);
+    expect(detection.getUrlComplete()).toEqual('http://127.0.0.1:8080/test/url/string.html');
+    expect(detection.getUrlHostname()).toEqual('127.0.0.1');
+    expect(detection.getUrlPathname()).toEqual('/test/url/string.html');
+    expect(detection.getUrlProtocol()).toEqual(8080);
   });
 });
 

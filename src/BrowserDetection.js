@@ -114,6 +114,33 @@ module.exports = class BrowserDetection {
     return this._langCode;
   }
 
+  getUrlComplete() {
+    if (typeof this._w.location === 'undefined') {
+      return '';
+    }
+    return this._w.location.href || '';
+  }
+
+  getUrlHostname() {
+    if (typeof this._w.location === 'undefined') {
+      return '';
+    }
+    return this._w.location.hostname || '';
+  }
+
+  getUrlPathname() {
+    if (typeof this._w.location === 'undefined') {
+      return '';
+    }
+    return this._w.location.pathname || '';
+  }
+
+  getUrlProtocol() {
+    if (typeof this._w.location === 'undefined') {
+      return 80;
+    }
+    return this._w.location.protocol || 80;
+  }
 
   /**
    * Call all Detection functions.
