@@ -18,11 +18,13 @@ This Plug-In checks the following browser features:
 
 * Check if an Browser the Internet Explorer and which version from it.
 
-* Check if Mobile Device is.
+* Check if mobile or desktop Device is.
 
     * Android
+    * Apple
     * BlackBerry
     * iOS
+    * Linux
     * Opera
     * Windows
 
@@ -33,10 +35,7 @@ This Plug-In checks the following browser features:
     * Opera
     * Safari
 
-* Check the correct Browser Window Size for Desktop and Mobile.
-
 * Check the Browser language.
-
 
 
 ## Get Started
@@ -60,7 +59,7 @@ Run tests:
 
     $ npm run test
 
-#### Usage
+#### Create release
 
 Create a Release
 

@@ -2,6 +2,24 @@ module.exports = function(grunt) {
   "use strict";
   grunt.initConfig({
     pkg : grunt.file.readJSON('package.json'),
+    babel: {
+      options: {
+        sourceMap: false,
+        presets: ['@babel/env']
+      },
+      dist: {
+        files: {
+          'dist/BrowserDetection.js': 'src/BrowserDetection.js'
+        }
+      }
+    },
+    copy: {
+      config: {
+        files: [
+          {expand: true, cwd: './coverage/', src: 'badge-*.svg', dest: './.github/'}
+        ]
+      }
+    },
     devUpdate: {
       show: {
         options: {
@@ -40,7 +58,15 @@ module.exports = function(grunt) {
         ]
       }
     },
-
+    uglify: {
+      options: {
+        report: 'min'
+      },
+      main: {
+        src: 'dist/BrowserDetection.js',
+        dest: 'dist/BrowserDetection.min.js'
+      }
+    },
     run: {
       test: {
         exec: 'npm run test --silent'
@@ -48,14 +74,19 @@ module.exports = function(grunt) {
     }
   });
 
-
+  grunt.loadNpmTasks('grunt-babel');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-run');
+  grunt.loadNpmTasks('grunt-contrib-uglify-es');
   grunt.loadNpmTasks('grunt-dev-update');
+  grunt.loadNpmTasks('grunt-run');
 
   grunt.registerTask('default', [
     'jshint',
-    'run:test'
+    'run:test',
+    'babel',
+    'uglify',
+    'copy'
   ]);
 
 };
