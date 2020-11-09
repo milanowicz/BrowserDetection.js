@@ -1,5 +1,7 @@
 module.exports = function(grunt) {
-  "use strict";
+  'use strict';
+  require('load-grunt-tasks')(grunt);
+  require('time-grunt')(grunt);
   grunt.initConfig({
     pkg : grunt.file.readJSON('package.json'),
     babel: {
@@ -73,13 +75,6 @@ module.exports = function(grunt) {
       }
     }
   });
-
-  grunt.loadNpmTasks('grunt-babel');
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-uglify-es');
-  grunt.loadNpmTasks('grunt-dev-update');
-  grunt.loadNpmTasks('grunt-run');
 
   grunt.registerTask('default', [
     'jshint',

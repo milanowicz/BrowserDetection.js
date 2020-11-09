@@ -15,6 +15,7 @@ module.exports = class BrowserDetection {
    * @param {String} [appName] - App Name from Navigator as String.
    */
   constructor(window, userAgent, appName) {
+    this._name = 'BrowserDetection.js';
     if (typeof window === 'undefined') {
       window = {};
     }
@@ -183,25 +184,25 @@ module.exports = class BrowserDetection {
   }
 
   logWindow() {
-    console.log('BrowserDetection.js | Mobile Device', this.isMobile());
-    console.log('BrowserDetection.js | OS Type', this.getOsType());
-    console.log('BrowserDetection.js | Browser', this.getBrowserName());
-    console.log('BrowserDetection.js | MS IE', this.isIE());
-    console.log('BrowserDetection.js | MS Edge', this.isEdge());
-    console.log('BrowserDetection.js | Language', this.getLanguage());
-    console.log('BrowserDetection.js | Language Code', this.getLanguageCode());
+    console.log(this._name + ' | Mobile Device', this.isMobile());
+    console.log(this._name + ' | OS Type', this.getOsType());
+    console.log(this._name + ' | Browser', this.getBrowserName());
+    console.log(this._name + ' | MS IE', this.isIE());
+    console.log(this._name + ' | MS Edge', this.isEdge());
+    console.log(this._name + ' | Language', this.getLanguage());
+    console.log(this._name + ' | Language Code', this.getLanguageCode());
   }
 
   logUrl() {
-    console.log('BrowserDetection.js | Complete', this.getUrlComplete());
-    console.log('BrowserDetection.js | Hash', this.getUrlHash());
-    console.log('BrowserDetection.js | Origin', this.getUrlOrigin());
-    console.log('BrowserDetection.js | Search', this.getUrlSearch());
-    console.log('BrowserDetection.js | Host', this.getUrlHost());
-    console.log('BrowserDetection.js | Pathname', this.getUrlPathname());
-    console.log('BrowserDetection.js | Hostname', this.getUrlHostname());
-    console.log('BrowserDetection.js | Port', this.getUrlPort());
-    console.log('BrowserDetection.js | Protocol', this.getUrlProtocol());
+    console.log(this._name + ' | Complete', this.getUrlComplete());
+    console.log(this._name + ' | Hash', this.getUrlHash());
+    console.log(this._name + ' | Origin', this.getUrlOrigin());
+    console.log(this._name + ' | Search', this.getUrlSearch());
+    console.log(this._name + ' | Host', this.getUrlHost());
+    console.log(this._name + ' | Pathname', this.getUrlPathname());
+    console.log(this._name + ' | Hostname', this.getUrlHostname());
+    console.log(this._name + ' | Port', this.getUrlPort());
+    console.log(this._name + ' | Protocol', this.getUrlProtocol());
   }
 
   /**
