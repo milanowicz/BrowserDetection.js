@@ -177,6 +177,33 @@ module.exports = class BrowserDetection {
     return this._w.location.search || '';
   }
 
+  log() {
+    this.logWindow();
+    this.logUrl();
+  }
+
+  logWindow() {
+    console.log('BrowserDetection.js | Mobile Device', this.isMobile());
+    console.log('BrowserDetection.js | OS Type', this.getOsType());
+    console.log('BrowserDetection.js | Browser', this.getBrowserName());
+    console.log('BrowserDetection.js | MS IE', this.isIE());
+    console.log('BrowserDetection.js | MS Edge', this.isEdge());
+    console.log('BrowserDetection.js | Language', this.getLanguage());
+    console.log('BrowserDetection.js | Language Code', this.getLanguageCode());
+  }
+
+  logUrl() {
+    console.log('BrowserDetection.js | Complete', this.getUrlComplete());
+    console.log('BrowserDetection.js | Hash', this.getUrlHash());
+    console.log('BrowserDetection.js | Origin', this.getUrlOrigin());
+    console.log('BrowserDetection.js | Search', this.getUrlSearch());
+    console.log('BrowserDetection.js | Host', this.getUrlHost());
+    console.log('BrowserDetection.js | Pathname', this.getUrlPathname());
+    console.log('BrowserDetection.js | Hostname', this.getUrlHostname());
+    console.log('BrowserDetection.js | Port', this.getUrlPort());
+    console.log('BrowserDetection.js | Protocol', this.getUrlProtocol());
+  }
+
   /**
    * Call all Detection functions.
    *

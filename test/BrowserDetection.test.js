@@ -124,5 +124,47 @@ describe('BrowserDetection', () => {
     expect(detection.getUrlPort()).toEqual('8080');
     expect(detection.getUrlSearch()).toEqual('?search=1');
   });
+
+  test('Test logging for window variables', () => {
+    console.log = jest.fn();
+    detection.log();
+    expect(console.log.mock.calls[0][0]).toBe('BrowserDetection.js | Mobile Device');
+    expect(console.log.mock.calls[6][0]).toBe('BrowserDetection.js | Language Code');
+    expect(console.log.mock.calls[7][0]).toBe('BrowserDetection.js | Complete');
+    expect(console.log.mock.calls[15][0]).toBe('BrowserDetection.js | Protocol');
+  });
+
+  test('Test logging for window variables', () => {
+    console.log = jest.fn();
+    detection.logWindow();
+    expect(console.log.mock.calls[0][0]).toBe('BrowserDetection.js | Mobile Device');
+    expect(console.log.mock.calls[0][1]).toBe(false);
+    expect(console.log.mock.calls[1][0]).toBe('BrowserDetection.js | OS Type');
+    expect(console.log.mock.calls[1][1]).toBe('');
+    expect(console.log.mock.calls[2][0]).toBe('BrowserDetection.js | Browser');
+    expect(console.log.mock.calls[1][1]).toBe('');
+    expect(console.log.mock.calls[3][0]).toBe('BrowserDetection.js | MS IE');
+    expect(console.log.mock.calls[1][1]).toBe('');
+    expect(console.log.mock.calls[4][0]).toBe('BrowserDetection.js | MS Edge');
+    expect(console.log.mock.calls[1][1]).toBe('');
+    expect(console.log.mock.calls[5][0]).toBe('BrowserDetection.js | Language');
+    expect(console.log.mock.calls[1][1]).toBe('');
+    expect(console.log.mock.calls[6][0]).toBe('BrowserDetection.js | Language Code');
+    expect(console.log.mock.calls[1][1]).toBe('');
+  });
+
+  test('Test logging for URL variables', () => {
+    console.log = jest.fn();
+    detection.logUrl();
+    expect(console.log.mock.calls[0][0]).toBe('BrowserDetection.js | Complete');
+    expect(console.log.mock.calls[1][0]).toBe('BrowserDetection.js | Hash');
+    expect(console.log.mock.calls[2][0]).toBe('BrowserDetection.js | Origin');
+    expect(console.log.mock.calls[3][0]).toBe('BrowserDetection.js | Search');
+    expect(console.log.mock.calls[4][0]).toBe('BrowserDetection.js | Host');
+    expect(console.log.mock.calls[5][0]).toBe('BrowserDetection.js | Pathname');
+    expect(console.log.mock.calls[6][0]).toBe('BrowserDetection.js | Hostname');
+    expect(console.log.mock.calls[7][0]).toBe('BrowserDetection.js | Port');
+    expect(console.log.mock.calls[8][0]).toBe('BrowserDetection.js | Protocol');
+  });
 });
 
