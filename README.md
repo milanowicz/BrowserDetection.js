@@ -1,11 +1,11 @@
 # BrowserDetection.js
 
-![Test](https://github.com/Milanowicz/BrowserDetection.js/workflows/Build/badge.svg?branch=dev)
+![Test](https://github.com/Milanowicz/BrowserDetection.js/workflows/Build/badge.svg?branch=master)
 
-![Branches](https://raw.githubusercontent.com/Milanowicz/BrowserDetection.js/dev/.github/badge-branches.svg)
-![Functions](https://raw.githubusercontent.com/Milanowicz/BrowserDetection.js/dev/.github/badge-functions.svg)
-![Lines](https://raw.githubusercontent.com/Milanowicz/BrowserDetection.js/dev/.github/badge-lines.svg)
-![Statements](https://raw.githubusercontent.com/Milanowicz/BrowserDetection.js/dev/.github/badge-statements.svg)
+![Branches](https://raw.githubusercontent.com/Milanowicz/BrowserDetection.js/master/.github/badge-branches.svg)
+![Functions](https://raw.githubusercontent.com/Milanowicz/BrowserDetection.js/master/.github/badge-functions.svg)
+![Lines](https://raw.githubusercontent.com/Milanowicz/BrowserDetection.js/master/.github/badge-lines.svg)
+![Statements](https://raw.githubusercontent.com/Milanowicz/BrowserDetection.js/master/.github/badge-statements.svg)
 
 
 ## Usage
