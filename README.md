@@ -10,11 +10,27 @@
 
 ## Usage
 
+Install it by Yarn or NPM
+
+    $ yarn add browser-detection.js
+
+    $ npm install browser-detection.js
+
+
+Sample for ES 6 usage:
+
+    import BrowserDetection from 'browser-detection.js/src/BrowserDetection';
     const detection = new BrowserDetection(
         window,
         navigator.userAgent || navigator.vendor || window.opera || '',
         navigator.appName || ''
     );
+
+
+When ES 5 or what ever, then use one of them:
+
+    browser-detection.js/src/BrowserDetection.js
+    browser-detection.js/src/BrowserDetection.min.js
 
 
 ## Description
