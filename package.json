@@ -1,6 +1,16 @@
 {
   "name": "browser-detection.js",
-  "description": "JavaScript Detection for Mobile Device, Internet Explorer and Window Size",
+  "description": "JavaScript Detection for Mobile Devices, Internet Explorer, Browser UserAgents and Language.",
+  "keywords": [
+    "Browser",
+    "Browser Detection",
+    "UserAgent",
+    "Internet Explorer",
+    "IE",
+    "Language",
+    "Mobile",
+    "Desktop"
+  ],
   "homepage": "https://github.com/Milanowicz/BrowserDetection.js",
   "author": "Milanowicz",
   "version": "1.0.1",
