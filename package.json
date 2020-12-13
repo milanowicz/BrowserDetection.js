@@ -3,7 +3,7 @@
   "description": "JavaScript Detection for Mobile Device, Internet Explorer and Window Size",
   "homepage": "https://github.com/Milanowicz/BrowserDetection.js",
   "author": "Milanowicz",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": {
     "type": "git",
     "url": "git@github.com:Milanowicz/BrowserDetection.js.git"
