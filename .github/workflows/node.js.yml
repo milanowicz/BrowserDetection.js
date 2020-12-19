@@ -15,17 +15,20 @@ jobs:
           - "15.x"
 
     steps:
-      - uses: actions/checkout@v1
+      - name: "Checkout"
+        uses: actions/checkout@v1
 
       - name: "Use Node.js"
         uses: actions/setup-node@v1
         with:
-          node-version: "${{ matrix.php-version }}"
+          node-version: "${{ matrix.npm-version }}"
+
       - run: yarn install
       - run: grunt jshint
       - run: npm run test
 
-      - uses: codecov/codecov-action@v1
+      - name: "Send coverage to codecov.io"
+        uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
     env:
