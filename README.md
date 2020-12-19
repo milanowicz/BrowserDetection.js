@@ -1,13 +1,9 @@
 # BrowserDetection.js
 
 ![Test](https://github.com/Milanowicz/BrowserDetection.js/workflows/Build/badge.svg?branch=master)
+[![codecov](https://codecov.io/gh/Milanowicz/BrowserDetection.js/branch/master/graph/badge.svg?token=42G6ETI9NV)](https://codecov.io/gh/Milanowicz/BrowserDetection.js)
 ![](https://img.shields.io/github/v/tag/Milanowicz/BrowserDetection.js)
 ![](https://img.shields.io/npm/v/browser-detection.js)
-
-![Branches](https://raw.githubusercontent.com/Milanowicz/BrowserDetection.js/master/.github/badge-branches.svg)
-![Functions](https://raw.githubusercontent.com/Milanowicz/BrowserDetection.js/master/.github/badge-functions.svg)
-![Lines](https://raw.githubusercontent.com/Milanowicz/BrowserDetection.js/master/.github/badge-lines.svg)
-![Statements](https://raw.githubusercontent.com/Milanowicz/BrowserDetection.js/master/.github/badge-statements.svg)
 
 ![](https://img.shields.io/github/repo-size/milanowicz/BrowserDetection.js)
 ![](https://img.shields.io/github/languages/code-size/milanowicz/BrowserDetection.js)

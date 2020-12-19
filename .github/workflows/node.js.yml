@@ -12,6 +12,7 @@ jobs:
         npm-version:
           - "12.x"
           - "14.x"
+          - "15.x"
 
     steps:
       - uses: actions/checkout@v1
