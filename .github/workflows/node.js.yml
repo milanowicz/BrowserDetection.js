@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        npm-version:
+        node-version:
           - "12.x"
           - "14.x"
           - "15.x"
@@ -18,14 +18,17 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@v1
 
-      - name: "Use Node.js"
+      - name: "Use Node.js ${{ matrix.node-version }}"
         uses: actions/setup-node@v1
         with:
-          node-version: "${{ matrix.npm-version }}"
+          node-version: "${{ matrix.node-version }}"
 
-      - run: yarn install
-      - run: grunt jshint
-      - run: npm run test
+      - name: "Install"
+        run: yarn install
+      - name: "JS Linter"
+        run: grunt jshint
+      - name: "Run Jest tests"
+        run: npm run test
 
       - name: "Send coverage to codecov.io"
         uses: codecov/codecov-action@v1
