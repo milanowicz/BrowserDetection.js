@@ -6,14 +6,26 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    strategy:
+      fail-fast: false
+      matrix:
+        npm-version:
+          - "12.x"
+          - "14.x"
+
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js 12.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: "12.x"
-    - run: yarn install
-    - run: grunt jshint
-    - run: npm run test
+      - uses: actions/checkout@v1
+
+      - name: "Use Node.js"
+        uses: actions/setup-node@v1
+        with:
+          node-version: "${{ matrix.php-version }}"
+      - run: yarn install
+      - run: grunt jshint
+      - run: npm run test
+
+      - uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
     env:
       CI: true
