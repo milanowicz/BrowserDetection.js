@@ -5,7 +5,7 @@
 [![codecov](https://codecov.io/gh/Milanowicz/BrowserDetection.js/branch/master/graph/badge.svg?token=42G6ETI9NV)](https://codecov.io/gh/Milanowicz/BrowserDetection.js)
 
 ![](https://raw.githubusercontent.com/Milanowicz/BrowserDetection.js/master/.github/badge-branches.svg)
-![](https://raw.githubusercontent.com/Milanowicz/BrowserDetection.js/master/.github/badge-functinos.svg)
+![](https://raw.githubusercontent.com/Milanowicz/BrowserDetection.js/master/.github/badge-functions.svg)
 ![](https://raw.githubusercontent.com/Milanowicz/BrowserDetection.js/master/.github/badge-lines.svg)
 ![](https://raw.githubusercontent.com/Milanowicz/BrowserDetection.js/master/.github/badge-statements.svg)
 
