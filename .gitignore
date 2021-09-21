@@ -7,8 +7,9 @@ Thumbs.db
 .project
 .settings
 package-lock.json
-
+.stryker-tmp
 .settings/
 coverage/
+coverage-mutation/
 node_modules/
 npm-debug.log

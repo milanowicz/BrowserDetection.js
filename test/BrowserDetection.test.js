@@ -19,10 +19,12 @@ describe('BrowserDetection', () => {
     expect(detection.isIE()).toBeFalsy();
     expect(detection.isEdge()).toBeFalsy();
     expect(detection.getBrowserName()).toEqual('');
+    expect(detection.getAppName()).toEqual('');
     expect(detection.getOsType()).toEqual('');
     expect(detection.getIeVersion()).toEqual(DEFAULT_IE_VERSION);
     expect(detection.getLanguage()).toEqual('en');
     expect(detection.getLanguageCode()).toEqual('en-us');
+    expect(detection.getUserAgent()).toBe('');
     checkUrlDefaults(detection);
   }
 
@@ -41,6 +43,7 @@ describe('BrowserDetection', () => {
   function checkDevice(value) {
     detection = new BrowserDetection(window, value.agent, value.appName);
     detection.checkAll();
+    expect(detection.getUserAgent()).toBe(value.agent);
     expect(detection.isMobile()).toEqual(value.mobile);
     expect(detection.getBrowserName()).toEqual(value.browser);
     expect(detection.getOsType()).toEqual(value.type);
@@ -55,6 +58,7 @@ describe('BrowserDetection', () => {
   });
 
   test('test checkAll empty', () => {
+    detection = new BrowserDetection();
     detection.checkAll();
     checkDefaults(detection);
   });
@@ -91,6 +95,26 @@ describe('BrowserDetection', () => {
     detection.checkLanguage();
     expect(detection.getLanguage()).toEqual('zh');
     expect(detection.getLanguageCode()).toEqual('zh-cn');
+  });
+
+  test('test exception by checkLanguage from Browser', () => {
+    window = {};
+    window.navigator = {};
+    window.navigator.language = 'de-DE';
+    detection = new BrowserDetection(window, agent);
+    detection.checkLanguage();
+    expect(detection.getLanguage()).toEqual('de');
+    expect(detection.getLanguageCode()).toEqual('de-de');
+
+    window.console = {
+      log: jest.fn()
+    };
+    window.navigator.language = {};
+    detection = new BrowserDetection(window, agent);
+    detection.checkLanguage();
+    expect(detection.getLanguage()).toEqual('en');
+    expect(detection.getLanguageCode()).toEqual('en-us');
+    expect(window.console.log).toBeCalled()
   });
 
   test('test window location fallbacks when location is empty', () => {
@@ -134,7 +158,7 @@ describe('BrowserDetection', () => {
     expect(console.log.mock.calls[15][0]).toBe('BrowserDetection.js | Protocol');
   });
 
-  test('Test logging for window variables', () => {
+  test('test logging for window variables', () => {
     console.log = jest.fn();
     detection.logWindow();
     expect(console.log.mock.calls[0][0]).toBe('BrowserDetection.js | Mobile Device');
@@ -153,7 +177,7 @@ describe('BrowserDetection', () => {
     expect(console.log.mock.calls[1][1]).toBe('');
   });
 
-  test('Test logging for URL variables', () => {
+  test('test logging for URL variables', () => {
     console.log = jest.fn();
     detection.logUrl();
     expect(console.log.mock.calls[0][0]).toBe('BrowserDetection.js | Complete');
@@ -166,5 +190,44 @@ describe('BrowserDetection', () => {
     expect(console.log.mock.calls[7][0]).toBe('BrowserDetection.js | Port');
     expect(console.log.mock.calls[8][0]).toBe('BrowserDetection.js | Protocol');
   });
+
+  test('test HTML tag changes', () => {
+    let data = {
+      className: 'testing'
+    };
+    window = {
+      document: {
+        getElementsByTagName: jest.fn().mockImplementation(() => { return [data]; })
+      }
+    };
+    detection = new BrowserDetection(
+      window,
+      'Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.0)',
+      'Microsoft Internet Explorer'
+    );
+    detection.checkAll();
+
+    expect(window.document.getElementsByTagName).toBeCalled();
+    expect(detection.getIeVersion()).toBe(9);
+    expect(data.className).toBe('testing ie9');
+
+
+    data = {};
+    window = {
+      document: {
+        getElementsByTagName: jest.fn().mockImplementation(() => { return [data]; })
+      }
+    };
+    detection = new BrowserDetection(
+      window,
+      'Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.0)',
+      'Microsoft Internet Explorer'
+    );
+    detection.checkAll();
+
+    expect(window.document.getElementsByTagName).toBeCalled();
+    expect(detection.getIeVersion()).toBe(9);
+    expect(data.className).toBe(' ie9');
+  })
 });
 

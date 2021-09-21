@@ -1,7 +1,11 @@
 .github
 .idea
 coverage
+coverage-mutation
 .editorconfig
 .jshintrc
 .gitignore
 Gruntfile.js
+jest.config.js
+stryker.conf.json
+test

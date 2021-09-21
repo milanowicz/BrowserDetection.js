@@ -72,6 +72,9 @@ module.exports = function(grunt) {
     run: {
       test: {
         exec: 'npm run test --silent'
+      },
+      mutation: {
+        exec: 'npm run mutation'
       }
     }
   });
@@ -79,6 +82,7 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'jshint',
     'run:test',
+    'run:mutation',
     'babel',
     'uglify',
     'copy'

@@ -1,7 +1,14 @@
 # BrowserDetection.js
 
 ![Test](https://github.com/Milanowicz/BrowserDetection.js/workflows/Build/badge.svg?branch=master)
+[![Mutation testing](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2FMilanowicz%2FBrowserDetection.js%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/Milanowicz/BrowserDetection.js/master)
 [![codecov](https://codecov.io/gh/Milanowicz/BrowserDetection.js/branch/master/graph/badge.svg?token=42G6ETI9NV)](https://codecov.io/gh/Milanowicz/BrowserDetection.js)
+
+![](https://raw.githubusercontent.com/Milanowicz/BrowserDetection.js/master/.github/badge-branches.svg)
+![](https://raw.githubusercontent.com/Milanowicz/BrowserDetection.js/master/.github/badge-functinos.svg)
+![](https://raw.githubusercontent.com/Milanowicz/BrowserDetection.js/master/.github/badge-lines.svg)
+![](https://raw.githubusercontent.com/Milanowicz/BrowserDetection.js/master/.github/badge-statements.svg)
+
 ![](https://img.shields.io/github/v/tag/Milanowicz/BrowserDetection.js)
 ![](https://img.shields.io/npm/v/browser-detection.js)
 
@@ -79,7 +86,7 @@ Install all NodeJS Modules from Project
 
 Run tests:
 
-    $ npm run test
+    $ npm run tests
 
 #### Create release
 

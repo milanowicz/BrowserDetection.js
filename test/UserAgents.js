@@ -177,6 +177,8 @@ const UserAgents = [
       'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; .NET CLR 1.1.4322)',
       'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; WOW64; Trident/4.0;)',
       'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)',
+      'Mozilla/4.0 (compatible; MSIE 7.0b; Windows NT 6.0)',
+      'Mozilla/4.0 (compatible; MSIE 7.0b; Windows NT 5.1; Media Center PC 3.0; .NET CLR 1.0.3705; .NET CLR 1.1.4322; .NET CLR 2.0.50727; InfoPath.1)',
       'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; .NET CLR 3.0.04506)'
     ],
     type: 'Windows',
@@ -312,6 +314,18 @@ const UserAgents = [
     isIE: true,
     isEdge: true,
     ieVersion: 15
+  }, {
+    appName: '',
+    mobile: false,
+    browser: 'IE',
+    agents: [
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.19577',
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.19582'
+    ],
+    type: 'Windows',
+    isIE: true,
+    isEdge: true,
+    ieVersion: 18
   }
 ];
 

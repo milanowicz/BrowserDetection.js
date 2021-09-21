@@ -29,6 +29,10 @@ jobs:
         run: grunt jshint
       - name: "Run Jest tests"
         run: npm run test
+      - name: "Run Mutation tests"
+        run: npm run mutation
+        env:
+          STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
 
       - name: "Send coverage to codecov.io"
         uses: codecov/codecov-action@v1
