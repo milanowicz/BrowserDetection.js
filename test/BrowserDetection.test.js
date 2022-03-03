@@ -52,18 +52,18 @@ describe('BrowserDetection', () => {
     expect(detection.getIeVersion()).toEqual(value.ieVersion);
   }
 
-  test('test constructor', () => {
+  test('constructor', () => {
     detection = new BrowserDetection();
     checkDefaults(detection);
   });
 
-  test('test checkAll empty', () => {
+  test('checkAll empty', () => {
     detection = new BrowserDetection();
     detection.checkAll();
     checkDefaults(detection);
   });
 
-  test('test checkAll User Agents from Browser', () => {
+  test('checkAll User Agents from Browser', () => {
     UserAgents.forEach((value) => {
       try {
         if (value.agents) {
@@ -81,7 +81,7 @@ describe('BrowserDetection', () => {
     });
   });
 
-  test('test checkLanguage from Browser', () => {
+  test('checkLanguage from Browser', () => {
     window = {};
     window.navigator = {};
     window.navigator.language = 'de-DE';
@@ -97,7 +97,7 @@ describe('BrowserDetection', () => {
     expect(detection.getLanguageCode()).toEqual('zh-cn');
   });
 
-  test('test exception by checkLanguage from Browser', () => {
+  test('exception by checkLanguage from Browser', () => {
     window = {};
     window.navigator = {};
     window.navigator.language = 'de-DE';
@@ -117,14 +117,14 @@ describe('BrowserDetection', () => {
     expect(window.console.log).toBeCalled()
   });
 
-  test('test window location fallbacks when location is empty', () => {
+  test('window location fallbacks when location is empty', () => {
     window = {};
     window.location = {};
     detection = new BrowserDetection(window, agent);
     checkUrlDefaults(detection);
   });
 
-  test('test window location for Browser URL', () => {
+  test('window location for Browser URL', () => {
     window = {};
     window.location = {
       href: 'http://127.0.0.1:8080/test/url/string.html?search=1#front=end',
@@ -149,7 +149,7 @@ describe('BrowserDetection', () => {
     expect(detection.getUrlSearch()).toEqual('?search=1');
   });
 
-  test('Test logging for window variables', () => {
+  test('logging for window variables', () => {
     console.log = jest.fn();
     detection.log();
     expect(console.log.mock.calls[0][0]).toBe('BrowserDetection.js | Mobile Device');
@@ -158,7 +158,7 @@ describe('BrowserDetection', () => {
     expect(console.log.mock.calls[15][0]).toBe('BrowserDetection.js | Protocol');
   });
 
-  test('test logging for window variables', () => {
+  test('logging for window variables', () => {
     console.log = jest.fn();
     detection.logWindow();
     expect(console.log.mock.calls[0][0]).toBe('BrowserDetection.js | Mobile Device');
@@ -177,7 +177,7 @@ describe('BrowserDetection', () => {
     expect(console.log.mock.calls[1][1]).toBe('');
   });
 
-  test('test logging for URL variables', () => {
+  test('logging for URL variables', () => {
     console.log = jest.fn();
     detection.logUrl();
     expect(console.log.mock.calls[0][0]).toBe('BrowserDetection.js | Complete');
@@ -191,13 +191,19 @@ describe('BrowserDetection', () => {
     expect(console.log.mock.calls[8][0]).toBe('BrowserDetection.js | Protocol');
   });
 
-  test('test HTML tag changes', () => {
+  test('HTML tag changes', () => {
     let data = {
       className: 'testing'
     };
     window = {
       document: {
-        getElementsByTagName: jest.fn().mockImplementation(() => { return [data]; })
+        getElementsByTagName: jest.fn().mockImplementation((type) => {
+          if (type === 'html') {
+            return [data];
+          } else {
+            return undefined;
+          }
+        })
       }
     };
     detection = new BrowserDetection(
