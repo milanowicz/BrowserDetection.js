@@ -1,12 +1,12 @@
 /*!
  * BrowserDetection.js Library
- * Author: Milanowicz
- * Homepage: https://github.com/Milanowicz
+ * Author: milanowicz
+ * Homepage: https://github.com/milanowicz
  * License: MIT
- * Date: 2021-09-21
+ * Date: 2022-03-03
  *
  * @desc Detection Browser object
- * @version 1.0.2
+ * @version 1.0.3
  */
 module.exports = class BrowserDetection {
   /**
