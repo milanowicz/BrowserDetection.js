@@ -11,37 +11,37 @@
     "Mobile",
     "Desktop"
   ],
-  "homepage": "https://github.com/Milanowicz/BrowserDetection.js",
-  "author": "Milanowicz",
-  "version": "1.0.2",
+  "homepage": "https://github.com/milanowicz/BrowserDetection.js",
+  "author": "milanowicz",
+  "version": "1.0.3",
   "repository": {
     "type": "git",
-    "url": "git@github.com:Milanowicz/BrowserDetection.js.git"
+    "url": "git@github.com:milanowicz/BrowserDetection.js.git"
   },
   "main": "src/BrowserDetection.js",
   "license": "MIT",
   "scripts": {
+    "build": "grunt",
     "tests": "npm run test && npm run mutation",
     "test": "jest --coverage",
     "mutation": "stryker run"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.5",
-    "@babel/node": "^7.15.4",
-    "@babel/preset-env": "^7.15.6",
-    "@stryker-mutator/core": "^5.4.0",
-    "@stryker-mutator/jest-runner": "^5.4.0",
-    "babel-jest": "^27.2.1",
-    "grunt": "^1.4.1",
-    "grunt-babel": "^8.0.0",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-jshint": "^3.0.0",
-    "grunt-contrib-uglify-es": "^3.3.0",
-    "grunt-dev-update": "^2.3.0",
-    "grunt-run": "^0.8.1",
-    "jest": "^27.2.1",
-    "load-grunt-tasks": "^5.1.0",
-    "time-grunt": "^2.0.0"
+    "@babel/core": "^7.17",
+    "@babel/node": "^7.16",
+    "@babel/preset-env": "^7.16",
+    "@stryker-mutator/core": "^5.6",
+    "@stryker-mutator/jest-runner": "^5.6",
+    "babel-jest": "^27.5",
+    "grunt": "^1.4",
+    "grunt-babel": "^8.0",
+    "grunt-contrib-copy": "^1.0",
+    "grunt-contrib-jshint": "^3.2",
+    "grunt-contrib-uglify": "^5.0",
+    "grunt-run": "^0.8",
+    "jest": "^27.5",
+    "load-grunt-tasks": "^5.1",
+    "time-grunt": "^2.0"
   },
   "engines": {
     "node": ">=12.0.0"
