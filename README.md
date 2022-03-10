@@ -4,13 +4,13 @@
 [![Mutation testing](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fmilanowicz%2FBrowserDetection.js%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/milanowicz/BrowserDetection.js/master)
 [![codecov](https://codecov.io/gh/milanowicz/BrowserDetection.js/branch/master/graph/badge.svg?token=42G6ETI9NV)](https://codecov.io/gh/milanowicz/BrowserDetection.js)
 
-![](https://img.shields.io/node/v-lts/browser-detection.js)
-![](https://img.shields.io/github/languages/top/milanowicz/BrowserDetection.js)
-
 ![](https://raw.githubusercontent.com/milanowicz/BrowserDetection.js/master/.github/badge-branches.svg)
 ![](https://raw.githubusercontent.com/milanowicz/BrowserDetection.js/master/.github/badge-functions.svg)
 ![](https://raw.githubusercontent.com/milanowicz/BrowserDetection.js/master/.github/badge-lines.svg)
 ![](https://raw.githubusercontent.com/milanowicz/BrowserDetection.js/master/.github/badge-statements.svg)
+
+![](https://img.shields.io/node/v-lts/browser-detection.js)
+![](https://img.shields.io/github/languages/top/milanowicz/BrowserDetection.js)
 
 ![](https://img.shields.io/github/v/tag/milanowicz/BrowserDetection.js)
 ![](https://img.shields.io/github/repo-size/milanowicz/BrowserDetection.js)
