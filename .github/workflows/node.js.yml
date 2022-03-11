@@ -33,7 +33,7 @@ jobs:
 
       - name: "JS Linter"
         run: grunt jshint
-        if: matrix.os == 'macos-latest'
+        if: matrix.os != 'macos-latest'
 
       - name: "Run Jest tests"
         run: npm run test
