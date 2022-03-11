@@ -9,6 +9,7 @@ jobs:
 
     strategy:
       fail-fast: false
+      max-parallel: 3
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
         node-version: ["12.x", "14.x", "16.x"]
@@ -32,6 +33,7 @@ jobs:
 
       - name: "JS Linter"
         run: grunt jshint
+        if: matrix.os == 'macos-latest'
 
       - name: "Run Jest tests"
         run: npm run test
