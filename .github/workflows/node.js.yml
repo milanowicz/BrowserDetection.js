@@ -5,14 +5,15 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    continue-on-error: ${{ matrix.experimental }}
     strategy:
       fail-fast: false
       matrix:
-        node-version:
-          - "12.x"
-          - "14.x"
-          - "16.x"
+        node-version: ["12.x", "14.x", "16.x"]
+        experimental: [false]
+        include:
+          - node-version: "17.x"
+            experimental: true
 
     steps:
       - name: "Checkout"
@@ -23,12 +24,15 @@ jobs:
         with:
           node-version: "${{ matrix.node-version }}"
 
-      - name: "Install"
+      - name: "Install dependencies"
         run: yarn install
+
       - name: "JS Linter"
         run: grunt jshint
+
       - name: "Run Jest tests"
         run: npm run test
+
       - name: "Run Mutation tests"
         run: npm run mutation
         env:
@@ -36,6 +40,7 @@ jobs:
 
       - name: "Send coverage to codecov.io"
         uses: codecov/codecov-action@v1
+        if: matrix.experimental == false
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
     env:
