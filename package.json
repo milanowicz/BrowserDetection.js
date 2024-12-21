@@ -27,21 +27,21 @@
     "mutation": "stryker run"
   },
   "devDependencies": {
-    "@babel/core": "^7.17",
-    "@babel/node": "^7.16",
-    "@babel/preset-env": "^7.16",
-    "@stryker-mutator/core": "^5.6",
-    "@stryker-mutator/jest-runner": "^5.6",
-    "babel-jest": "^27.5",
-    "grunt": "^1.4",
-    "grunt-babel": "^8.0",
-    "grunt-contrib-copy": "^1.0",
-    "grunt-contrib-jshint": "^3.2",
-    "grunt-contrib-uglify": "^5.0",
-    "grunt-run": "^0.8",
-    "jest": "^27.5",
-    "load-grunt-tasks": "^5.1",
-    "time-grunt": "^2.0"
+    "@babel/core": "^7.26.0",
+    "@babel/node": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@stryker-mutator/core": "^7.3.0",
+    "@stryker-mutator/jest-runner": "^7.3.0",
+    "babel-jest": "^29.7.0",
+    "grunt": "^1.6.1",
+    "grunt-babel": "^8.0.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-jshint": "^3.2.0",
+    "grunt-contrib-uglify": "^5.2.2",
+    "grunt-run": "^0.8.1",
+    "jest": "^29.7.0",
+    "load-grunt-tasks": "^5.1.0",
+    "time-grunt": "^2.0.0"
   },
   "engines": {
     "node": ">=12.0.0"
